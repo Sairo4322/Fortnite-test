@@ -3,13 +3,12 @@ workflows:
     name: Android debug APK
     max_build_duration: 30
     environment:
-      android_signing:
-        - debug_keystore
       vars:
-        PACKAGE_NAME: "com.example.fortnitescreenobserver"
+        PACKAGE_NAME: "com.example.fortnitetest"
     scripts:
       - name: Build debug APK
         script: |
+          chmod +x gradlew
           ./gradlew assembleDebug
     artifacts:
-      - app/build/outputs/apk/debug/app-debug.apk
+      - app/build/outputs/apk/debug/*.apk
